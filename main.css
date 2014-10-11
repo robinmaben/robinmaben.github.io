@@ -1,14 +1,16 @@
 h1,h2,h3,h4{
   font-family: "PT Serif", Georgia, "Times New Roman", serif;
 }
+
 h1{
   font-size:3em;
 }
+
 p, div, a{
   font-family:"Pontano Sans", sans-serif;
 }
 
-a.main-links{
-  font-size:2em;
+.main-links > a{
+  font-size:1.5em;
   margin:2em;
 }
