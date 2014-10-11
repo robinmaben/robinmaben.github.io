@@ -1,6 +1,10 @@
 h1,h2,h3,h4{
-  font:100% "PT Serif", Georgia, "Times New Roman", serif;
+  font-family: "PT Serif", Georgia, "Times New Roman", serif;
 }
 p, div, a{
   font-family:"Pontano Sans", sans-serif;
+}
+
+a.main-links{
+  margin-right:2em;
 }
