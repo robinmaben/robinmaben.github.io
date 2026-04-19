@@ -398,6 +398,29 @@
     cmdInput.focus();
   }
 
+  // === Shortcut bar ===
+  document.getElementById('shortcut-bar').addEventListener('click', function (e) {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+
+    if (autoPlaying) {
+      skipAutoPlay();
+      return;
+    }
+
+    const key = btn.getAttribute('data-key');
+    const cmd = btn.getAttribute('data-cmd');
+
+    if (key) {
+      cmdInput.dispatchEvent(new KeyboardEvent('keydown', { key: key, bubbles: true }));
+    } else if (cmd) {
+      cmdInput.value = '';
+      runCommand(cmd);
+    }
+
+    cmdInput.focus();
+  });
+
   // === Init ===
   loadTheme();
   autoPlay();

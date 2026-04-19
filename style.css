@@ -207,6 +207,36 @@ html, body {
   border-radius: 3px;
 }
 
+/* === Shortcut Bar === */
+#shortcut-bar {
+  display: none;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--top-bar-bg);
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+  overflow-x: auto;
+}
+
+#shortcut-bar button {
+  background: var(--bg);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-family: inherit;
+  font-size: 0.8em;
+  cursor: pointer;
+  white-space: nowrap;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#shortcut-bar button:active {
+  background: var(--border);
+  color: var(--text);
+}
+
 /* === Mobile === */
 @media (max-width: 767px) {
   #top-bar {
@@ -219,5 +249,9 @@ html, body {
 
   #input-line {
     padding: 6px 12px 10px;
+  }
+
+  #shortcut-bar {
+    display: flex;
   }
 }
