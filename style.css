@@ -1,0 +1,223 @@
+/* === Reset === */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Theme: Dark (default, Copilot CLI-inspired) === */
+[data-theme="dark"] {
+  --bg: #0d1117;
+  --text: #e6edf3;
+  --prompt: #58a6ff;
+  --cmd: #7ee787;
+  --accent: #f0883e;
+  --border: #30363d;
+  --top-bar-bg: #161b22;
+  --cursor-color: #58a6ff;
+  --selection: rgba(88, 166, 255, 0.2);
+  --muted: #8b949e;
+}
+
+/* === Theme: Light === */
+[data-theme="light"] {
+  --bg: #ffffff;
+  --text: #24292f;
+  --prompt: #0969da;
+  --cmd: #116329;
+  --accent: #bc4c00;
+  --border: #d0d7de;
+  --top-bar-bg: #f6f8fa;
+  --cursor-color: #0969da;
+  --selection: rgba(9, 105, 218, 0.15);
+  --muted: #57606a;
+}
+
+/* === Theme: Solarized === */
+[data-theme="solarized"] {
+  --bg: #002b36;
+  --text: #839496;
+  --prompt: #268bd2;
+  --cmd: #859900;
+  --accent: #cb4b16;
+  --border: #073642;
+  --top-bar-bg: #073642;
+  --cursor-color: #268bd2;
+  --selection: rgba(38, 139, 210, 0.2);
+  --muted: #586e75;
+}
+
+/* === Theme: Monokai === */
+[data-theme="monokai"] {
+  --bg: #272822;
+  --text: #f8f8f2;
+  --prompt: #66d9ef;
+  --cmd: #a6e22e;
+  --accent: #fd971f;
+  --border: #3e3d32;
+  --top-bar-bg: #1e1f1c;
+  --cursor-color: #66d9ef;
+  --selection: rgba(102, 217, 239, 0.2);
+  --muted: #75715e;
+}
+
+/* === Base === */
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "SF Mono", "Cascadia Code", "Fira Code", "Consolas", "Liberation Mono", "Courier New", monospace;
+  font-size: clamp(13px, 1.6vw, 16px);
+  line-height: 1.5;
+}
+
+::selection {
+  background: var(--selection);
+}
+
+/* === Terminal Container === */
+#terminal {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  #terminal {
+    margin: 16px auto;
+    height: calc(100vh - 32px);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* === Top Bar === */
+#top-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: var(--top-bar-bg);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.85em;
+  flex-shrink: 0;
+}
+
+#terminal-title {
+  color: var(--muted);
+  flex: 1;
+}
+
+#theme-indicator {
+  color: var(--muted);
+  font-size: 0.85em;
+}
+
+#help-hint {
+  color: var(--muted);
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+#help-hint:hover {
+  opacity: 1;
+}
+
+/* === Output Area === */
+#output {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+#output .prompt-text {
+  color: var(--prompt);
+}
+
+#output .cmd-text {
+  color: var(--cmd);
+}
+
+#output .accent-text {
+  color: var(--accent);
+}
+
+#output .muted-text {
+  color: var(--muted);
+}
+
+#output .output-block {
+  margin-bottom: 8px;
+}
+
+#output a {
+  color: var(--prompt);
+  text-decoration: none;
+}
+
+#output a:hover {
+  text-decoration: underline;
+}
+
+/* === Input Line === */
+#input-line {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px 12px;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.prompt {
+  color: var(--prompt);
+  white-space: nowrap;
+  user-select: none;
+}
+
+#cmd-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--cmd);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  caret-color: var(--cursor-color);
+}
+
+/* === Scrollbar === */
+#output::-webkit-scrollbar {
+  width: 6px;
+}
+
+#output::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#output::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+/* === Mobile === */
+@media (max-width: 767px) {
+  #top-bar {
+    padding: 6px 12px;
+  }
+
+  #output {
+    padding: 12px;
+  }
+
+  #input-line {
+    padding: 6px 12px 10px;
+  }
+}
