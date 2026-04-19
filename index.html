@@ -1,30 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" data-theme="dark">
 <head>
-  <title>Robin Maben</title>
-  <link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
-  <link href="main.css" rel="stylesheet" />
-
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-55584703-1', 'auto');
-    ga('send', 'pageview');
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robin Maben — Terminal CV</title>
+  <meta name="description" content="Interactive terminal-style CV for Robin Maben, Software Engineer at Microsoft.">
+  <link rel="stylesheet" href="style.css">
 </head>
-  <body>
-    <h1 title="Full Stack Developer. Bangalore, India">Robin Maben</h1>
-    <div>
-      <a title="On Coding and Technology" href="http://blog.mabenrob.in">Blog</a>, 
-      <a title="Stackoverflow Profile" href="https://careers.stackoverflow.com/robinmaben">Profile</a>
+<body>
+  <div id="terminal">
+    <div id="top-bar">
+      <span id="terminal-title">robin@web:~</span>
+      <span id="theme-indicator">dark</span>
+      <span id="help-hint" title="Type 'help' for commands">?</span>
     </div>
-    <div class="content">
-      <div class="post">
-      </div>
+    <div id="output"></div>
+    <div id="input-line">
+      <span class="prompt">robin@web:~$&nbsp;</span>
+      <input type="text" id="cmd-input" autofocus autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal input">
     </div>
-  </body>
+  </div>
+  <script src="app.js"></script>
+</body>
 </html>
