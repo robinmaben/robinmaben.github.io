@@ -389,16 +389,9 @@
     await typeCommand('cat summary.txt');
     if (autoPlaying) await sleep(300);
 
-    if (autoPlaying) {
-      appendToOutput(
-        '<span class="muted-text">Type \'help\' for available commands.</span>'
-      );
-    } else {
-      // Skipped — still show the hint
-      appendToOutput(
-        '<span class="muted-text">Type \'help\' for available commands.</span>'
-      );
-    }
+    appendToOutput(
+      '<span class="muted-text">Type \'help\' for available commands.</span>'
+    );
 
     autoPlaying = false;
     cmdInput.disabled = false;
